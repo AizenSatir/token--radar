@@ -1,0 +1,63 @@
+/* Token Radar dashboard: dark terminal, gold accent, no framework, no network. */
+:root {
+  --bg: #0b1220; --panel: #101b2d; --panel2: #0e1828; --line: #1d2c44;
+  --text: #e6edf3; --muted: #8b9bb4; --gold: #e8b44a; --green: #3fb68b; --red: #e5534b;
+  --teal: #2fbf9b; --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.top { padding: 20px 24px 12px; border-bottom: 1px solid var(--line); }
+.brand { font: 700 22px/1.1 var(--mono); letter-spacing: .14em; }
+.brand .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--green); margin-right: 10px; box-shadow: 0 0 8px var(--green); }
+.sub { color: var(--muted); margin-top: 6px; }
+.meta { color: var(--muted); font: 12px var(--mono); margin-top: 8px; }
+.meta b { color: var(--gold); font-weight: 600; }
+.tabs { display: flex; gap: 4px; padding: 0 24px; border-bottom: 1px solid var(--line); }
+.tabs button { background: none; border: none; color: var(--muted); padding: 10px 14px;
+  font: 600 13px system-ui, sans-serif; cursor: pointer; border-bottom: 2px solid transparent; }
+.tabs button.on { color: var(--text); border-bottom-color: var(--gold); }
+.controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 14px 24px; }
+.controls input[type="search"], .controls select { background: var(--panel); color: var(--text);
+  border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; font: 13px system-ui, sans-serif; }
+.controls input[type="search"] { width: 240px; }
+.wl { color: var(--muted); font-size: 13px; display: flex; gap: 6px; align-items: center; }
+.count { color: var(--muted); font: 12px var(--mono); margin-left: auto; }
+main { padding: 0 24px 24px; }
+table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); }
+th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font: 600 11px system-ui, sans-serif; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--muted); cursor: pointer; user-select: none; }
+th.sorted { color: var(--gold); }
+td.num, th.num { text-align: right; font-family: var(--mono); font-size: 13px; }
+td .sym { color: var(--gold); font-family: var(--mono); font-weight: 700; }
+tr.row { cursor: pointer; }
+tr.row:hover td { background: #152238; }
+tr.row.sel td { background: #16283f; }
+td .cat { color: var(--muted); }
+td .up { color: var(--green); } td .down { color: var(--red); }
+td .watch { color: var(--gold); font-size: 11px; border: 1px solid var(--gold); border-radius: 4px;
+  padding: 1px 5px; margin-left: 6px; }
+.hint { color: var(--muted); font-size: 13px; }
+.detail { position: fixed; top: 0; right: 0; bottom: 0; width: 480px; max-width: 92vw;
+  overflow-y: auto; background: var(--panel); border-left: 1px solid var(--gold);
+  padding: 20px 22px; margin-top: 0; z-index: 10; box-shadow: -8px 0 24px rgba(0,0,0,.5); }
+.detail .close { float: right; background: none; border: 1px solid var(--line); color: var(--text);
+  border-radius: 6px; padding: 4px 10px; cursor: pointer; font: 13px system-ui, sans-serif; }
+.detail h2 { margin: 0 0 4px; font-size: 20px; }
+.detail h2 .rank { color: var(--gold); font-family: var(--mono); }
+.detail .facts { display: flex; gap: 24px; flex-wrap: wrap; color: var(--muted);
+  font: 13px var(--mono); margin: 8px 0 12px; }
+.detail .facts b { color: var(--text); }
+.detail .math { background: var(--panel2); border: 1px solid var(--line); border-radius: 6px;
+  padding: 10px 14px; font: 13px var(--mono); overflow-x: auto; }
+.detail .math b { color: var(--gold); }
+.detail h3 { margin: 16px 0 6px; font-size: 14px; }
+.detail ol { margin: 0; padding-left: 20px; }
+.detail li { margin: 8px 0; }
+.detail li .cost { color: var(--muted); }
+#view-method { max-width: 760px; }
+#view-method h2 { font-size: 18px; }
+#view-method li { margin: 8px 0; }
+footer { padding: 16px 24px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
